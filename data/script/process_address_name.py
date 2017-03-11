@@ -1,9 +1,12 @@
 from geopy.geocoders import Nominatim
+import pandas as pd
 
-geolocator = Nominatim()
+geolocator = Nominatim(country_bias='Canada')
 
 def get_position(address):
     location = geolocator.geocode(address)
-    print location.latitude, location.longitude
+    return location.latitude, location.longitude
 
-get_position('1285 rue Villeray')
+accidents = pd.read_csv(r'D:\Perso\hackQC2017\raw-data\accidents.csv')
+
+accidents['lat']

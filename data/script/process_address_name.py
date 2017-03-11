@@ -14,27 +14,28 @@ def get_position(address):
     except Exception, e:
         return 0,0
 
-accidents = pd.read_csv(r'D:\Perso\hackQC2017\raw-data\rapports-accident-2015.csv', low_memory=False)
+def process_report(path):
 
-accidents['address'] = accidents['NO_CIVIQ_ACCDN'].fillna(1).astype(int).astype(str) + ' ' + accidents['RUE_ACCDN']
+    accidents = pd.read_csv(path, low_memory=False, sep=';')
 
-print len(accidents)
-accidents = accidents[accidents.MRC == 'Québec (23 )']
-print len(accidents)
+    accidents['address'] = accidents['NO_CIVIQ_ACCDN'].fillna(1).astype(int).astype(str) + ' ' + accidents['RUE_VILLE']
 
-lat = []
-lon = []
-i = 0
+    lat = []
+    lon = []
+    i = 0
 
-for iter, row in accidents.iterrows():
-    i += 1
-    location = get_position(row['address'])
-    lat.append(location[0])
-    lon.append(location[1])
-    if i % 100 == 0:
-        print i
+    for iter, row in accidents.iterrows():
+        i += 1
+        location = get_position(row['address'])
+        lat.append(location[0])
+        lon.append(location[1])
+        if i % 100 == 0:
+            print i
 
-accidents['lat'] = lat
-accidents['lon'] = lon
+    accidents['lat'] = lat
+    accidents['lon'] = lon
 
-accidents.to_csv(r'D:\Perso\hackQC2017\raw-data\rapports-accident-2015-processed.csv')
+    accidents.to_csv(r'D:\Perso\hackQC2017\raw-data\results.csv')
+
+
+process_report(r'D:\Perso\hackQC2017\raw-data\accident_velo.csv')

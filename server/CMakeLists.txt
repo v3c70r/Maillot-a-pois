@@ -8,5 +8,5 @@ find_package(Boost 1.53.0 COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
 include_directories(SYSTEM ${Boost_INCLUDE_DIR})
 
 include_directories(src)
-add_executable(http_examples src/http_examples.cpp)
+add_executable(http_examples src/myServer.cpp)
 target_link_libraries(http_examples ${Boost_LIBRARIES})

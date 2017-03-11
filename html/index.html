@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Mapbox</title>
-        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.js'></script>
-        <style>
-body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
-#features {
+<head>
+  <title>Mapbox</title>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.js'></script>
+  <style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+  #features {
     position: absolute;
     top: 0;
     right: 0;
@@ -15,40 +15,56 @@ body { margin:0; padding:0; }
     width: 300px;
     overflow: auto;
     background: rgba(255, 255, 255, 0.8);
-}
-                                #map canvas {
-                                    cursor: crosshair;
-                                }
-        </style>
-    </head>
-    <body>
-        <div id='map'></div>
-        <pre id='features'></pre>
-        <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoidjNjNzByIiwiYSI6ImNpdmpsN203MzAxajcyemx2b3Jha3E3enoifQ.o645TrYhI8TaZ0JMa6WfXQ';
-var map = new mapboxgl.Map({
+  }
+  #map canvas {
+    cursor: crosshair;
+  }
+  </style>
+</head>
+<body>
+  <div id='map'></div>
+  <pre id='features'></pre>
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoidjNjNzByIiwiYSI6ImNpdmpsN203MzAxajcyemx2b3Jha3E3enoifQ.o645TrYhI8TaZ0JMa6WfXQ';
+  var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v9'
-});
-// Load geojson data from url
-map.on('load', function () {
-    map.setZoom(11.575115138395086);
-    //map.addSource("parkings", {
-    //    "type": "geojson",
-    //    "data": "https://raw.githubusercontent.com/v3c70r/StaticPages/gh-pages/mtl_parking.geojson"
-    //});
-    //map.addLayer({
-    //    "id": "parkings",
-    //    "type": "circle",
-    //    "source": "parkings",
-    //});
+  });
+  map.setZoom(10.114653522184721);
+  // Load geojson data from url
+  map.on('load', function () {
+    // Loading datas
+    map.addSource("bike", {
+      "type": "geojson",
+      "data": "https://raw.githubusercontent.com/v3c70r/Maillot-a-pois/master/data/QuebecCity_BicycleInfrastructure.geojson"
+    });
+    map.addSource("pedestrain", {
+      "type": "geojson",
+      "data": "https://raw.githubusercontent.com/v3c70r/Maillot-a-pois/master/data/QuebecCity_PedestrianInfrastructure.geojson"
+    });
+
+    // Adding layers from data
+    map.addLayer({
+      "id": "bike",
+      "type": "line",
+      "source": "bike",
+      "paint": {
+        "line-color": "#ff69b4",
+        "line-width": 2
+      }
+    });
+    map.addLayer({
+      "id": "pedestrain",
+      "type": "line",
+      "source": "pedestrain",
+    });
     //map.on('mousemove', function (e) {
     //    var features = map.queryRenderedFeatures(e.point);
     //    document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
     //});
-    map.setCenter([-73.57562416894726, 45.495095291039036]);
-});
+    map.setCenter([-71.2763062602738, 46.785609176075724]);
+  });
 
-        </script>
-    </body>
+  </script>
+</body>
 </html>

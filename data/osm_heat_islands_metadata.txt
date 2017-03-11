@@ -1,0 +1,10 @@
+Values from 1 to 9 represent the degree of heat (ground temperature):
+1- Coolest
+2- Coolest
+3- Cool
+4- Cool
+5- Medium
+6- Medium
+7- Medium
+8- Hot
+9- Very hot

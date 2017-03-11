@@ -4,6 +4,7 @@
   <title>Mapbox</title>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -14,6 +15,16 @@
       right: 0;
       bottom: 0;
       width: 300px;
+      overflow: auto;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    #stats {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 70%;
       overflow: auto;
       background: rgba(255, 255, 255, 0.8);
     }
@@ -74,78 +85,99 @@
   <pre id='features'>
     <nav id="menu"></nav>
   </pre>
+  <pre id="stats">
+    <p>Test</p>
+  </pre>
   
   <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoidjNjNzByIiwiYSI6ImNpdmpsN203MzAxajcyemx2b3Jha3E3enoifQ.o645TrYhI8TaZ0JMa6WfXQ';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v9'
-  });
-  map.setZoom(10.114653522184721);
-  // Load geojson data from url
-  map.on('load', function () {
-    // Loading datas
-    map.addSource("bike", {
-      "type": "geojson",
-      "data": "https://raw.githubusercontent.com/v3c70r/Maillot-a-pois/master/data/QuebecCity_BicycleInfrastructure.geojson"
+    mapboxgl.accessToken = 'pk.eyJ1IjoidjNjNzByIiwiYSI6ImNpdmpsN203MzAxajcyemx2b3Jha3E3enoifQ.o645TrYhI8TaZ0JMa6WfXQ';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/light-v9'
     });
-    map.addSource("pedestrian", {
-      "type": "geojson",
-      "data": "https://raw.githubusercontent.com/v3c70r/Maillot-a-pois/master/data/QuebecCity_PedestrianInfrastructure.geojson"
+    map.setZoom(10.114653522184721);
+    // Load geojson data from url
+    map.on('load', function () {
+      // Loading datas
+      map.addSource("bike", {
+        "type": "geojson",
+        "data": "https://raw.githubusercontent.com/v3c70r/Maillot-a-pois/master/data/QuebecCity_BicycleInfrastructure.geojson"
+      });
+      map.addSource("pedestrian", {
+        "type": "geojson",
+        "data": "https://raw.githubusercontent.com/v3c70r/Maillot-a-pois/master/data/QuebecCity_PedestrianInfrastructure.geojson"
+      });
+
+      // Adding layers from data
+      map.addLayer({
+        "id": "bike",
+        "type": "line",
+        "source": "bike",
+        "paint": {
+          "line-color": "#ff69b4",
+          "line-width": 2
+        }
+      });
+      map.addLayer({
+        "id": "pedestrian",
+        "type": "line",
+        "source": "pedestrian",
+      });
+      //map.on('mousemove', function (e) {
+      //    var features = map.queryRenderedFeatures(e.point);
+      //    document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
+      //});
+      map.setCenter([-71.2763062602738, 46.785609176075724]);
     });
 
-    // Adding layers from data
-    map.addLayer({
-      "id": "bike",
-      "type": "line",
-      "source": "bike",
-      "paint": {
-        "line-color": "#ff69b4",
-        "line-width": 2
-      }
+    var toggleableLayerIds = ['bike', 'pedestrian'];
+
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+        var id = toggleableLayerIds[i];
+
+        var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.textContent = id;
+
+        link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
+
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+            if (visibility === 'visible') {
+                map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                this.className = '';
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+        };
+
+        var layers = document.getElementById('menu');
+        layers.appendChild(link);
+    }
+  </script>
+  <script>
+
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'active';
+    link.textContent = 'stats_panel';
+    link.id = 'stats_button'
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+    $(document).ready(function(){
+      $("#stats_button").click(function(){
+          $("#stats").toggle();
+      });
     });
-    map.addLayer({
-      "id": "pedestrian",
-      "type": "line",
-      "source": "pedestrian",
-    });
-    //map.on('mousemove', function (e) {
-    //    var features = map.queryRenderedFeatures(e.point);
-    //    document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
-    //});
-    map.setCenter([-71.2763062602738, 46.785609176075724]);
-  });
 
-  var toggleableLayerIds = ['bike', 'pedestrian'];
-
-  for (var i = 0; i < toggleableLayerIds.length; i++) {
-      var id = toggleableLayerIds[i];
-
-      var link = document.createElement('a');
-      link.href = '#';
-      link.className = 'active';
-      link.textContent = id;
-
-      link.onclick = function (e) {
-          var clickedLayer = this.textContent;
-          e.preventDefault();
-          e.stopPropagation();
-
-          var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-          if (visibility === 'visible') {
-              map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-              this.className = '';
-          } else {
-              this.className = 'active';
-              map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-          }
-      };
-
-      var layers = document.getElementById('menu');
-      layers.appendChild(link);
-  }
 
   </script>
+
+
 </body>
 </html>

@@ -165,21 +165,24 @@ td{
 }
 
 #selected_link_likes{
-  font-size: 12px;
+  font-size: 15px;
   font-family: sans-serif;
   color: #66CC00;
+  font-weight: bold;
 }
 
 #selected_link_damaged{
-  font-size: 12px;
+  font-size: 15px;
   font-family: sans-serif;
   color: #993300;
+  font-weight: bold;
 }
 
 #selected_link_dangerous{
-  font-size: 12px;
+  font-size: 15px;
   font-family: sans-serif;
   color: #990000;
+  font-weight: bold;
 }
 
 .foo {

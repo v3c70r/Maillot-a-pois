@@ -179,7 +179,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 var link = document.createElement('a');
 link.href = '#';
 link.className = 'active';
-link.textContent = 'stats_panel';
+link.textContent = 'Statistiques';
 link.id = 'stats_button'
 var layers = document.getElementById('menu');
 layers.appendChild(link);

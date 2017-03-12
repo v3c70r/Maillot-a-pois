@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="trajet_pour_presentation_FINAL" id="trajet_pour_presentation_FINAL">
+	<SimpleField name="delay" type="int"></SimpleField>
+	<SimpleField name="elevation" type="int"></SimpleField>
+</Schema>
+<Folder><name>trajet_pour_presentation_FINAL</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2176455911463,46.8103605366615,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2181077450019,46.8101463623081,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2184704558809,46.8101675610676,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2186444000969,46.8103918296818,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2187769439215,46.8105881879476,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2189921051982,46.8108262822054,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2191241507607,46.8109850830797,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2194368118543,46.8108422677665,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2198175984598,46.810680243107,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#trajet_pour_presentation_FINAL">
+		<SimpleData name="delay">5</SimpleData>
+		<SimpleData name="elevation">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-71.2201168937443,46.8105609850535,0</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

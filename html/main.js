@@ -289,7 +289,9 @@ var data = [
 ];
 
 var layout = {barmode: 'stack',
-              xaxis: {autorange: 'reversed'}};
+              xaxis: {autorange: 'reversed'},
+              text:texts
+            };
 Plotly.newPlot('company_ranking', data, layout);
 
 

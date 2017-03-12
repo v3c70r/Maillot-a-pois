@@ -240,43 +240,45 @@ var company_names = [
 
 var environment_score = {
   x:company_names,
-  y:[1,2,3,4,5,6,7,8,9,10],
+  y:[1399,1190,713,817,701,532,476,420,379,175
+],
   name: 'Score environemental',
   type: 'bar'
 };
 
 var physical_activity_score = {
   x:company_names,
-  y:[1,2,3,4,5,6,7,8,9,10],
+  y:[2011,1489,1189,1335,1131,946,867,711,645,305,],
   name: 'Score calorie',
   type: 'bar'
 };
 
 var fidelity_score = {
   x:company_names,
-  y:[1,2,3,4,5,6,7,8,9,10],
+  y:[450,375,875,550,425,500,575,500,350,250],
   name: 'Score fidelite',
   type: 'bar'
 };
 
 var feed_back_score = {
   x:company_names,
-  y:[1,2,3,4,5,6,7,8,9,10],
+  y:[75,25,125,100,100,75,50,100,75,25
+],
   name: 'Score citoyen',
   type: 'bar'
 };
 
 var texts = [
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2',
-  '3 employees <br> 4 kg CO2'
+  '6 employees',
+  '4 employees',
+  '7 employees',
+  '5 employees',
+  '5 employees',
+  '6 employees',
+  '6 employees',
+  '5 employees',
+  '4 employees',
+  '2 employees'
 ];
 
 var data = [
@@ -292,27 +294,3 @@ Plotly.newPlot('company_ranking', data, layout);
 
 
 
-function parseURLParams(url) {
-    var queryStart = url.indexOf("?") + 1,
-        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
-        query = url.slice(queryStart, queryEnd - 1),
-        pairs = query.replace(/\+/g, " ").split("&"),
-        parms = {}, i, n, v, nv;
-
-    if (query === url || query === "") return;
-
-    for (i = 0; i < pairs.length; i++) {
-        nv = pairs[i].split("=", 2);
-        n = decodeURIComponent(nv[0]);
-        v = decodeURIComponent(nv[1]);
-
-        if (!parms.hasOwnProperty(n)) parms[n] = [];
-        parms[n].push(nv.length === 2 ? v : null);
-    }
-    return parms;
-}
-
-var urlString = "http://10.128.165.20:8080/getLink/1024";
-urlParams = parseURLParams(urlString);
-console.log(urlParams);
-alert(urlParams)

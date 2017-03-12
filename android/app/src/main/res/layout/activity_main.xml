@@ -35,7 +35,7 @@
             <Button
                 android:id="@+id/button16"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:text="Like" />
 
             <LinearLayout
@@ -45,10 +45,12 @@
                 android:weightSum="1">
 
                 <Button
-                    android:id="@+id/button22"
+                    android:id="@+id/like"
                     android:layout_width="43dp"
                     android:layout_height="wrap_content"
-                    android:background="@android:drawable/checkbox_on_background" />
+                    android:layout_marginLeft="0dp"
+                    android:background="@android:drawable/checkbox_on_background"
+                    android:elevation="0dp" />
 
                 <Button
                     android:id="@+id/button21"
@@ -77,9 +79,9 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/buttonInfo"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:text="Info" />
         </LinearLayout>
 
@@ -88,11 +90,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button16"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="Path" />
         </LinearLayout>
 
     </GridLayout>

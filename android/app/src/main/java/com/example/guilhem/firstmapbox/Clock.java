@@ -34,7 +34,7 @@ public class Clock {
 
     private void addMarker (){
 
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(30000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {

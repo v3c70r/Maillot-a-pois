@@ -33,10 +33,10 @@
             android:weightSum="1">
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/synch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Like" />
+                android:text="synch" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,30 +45,34 @@
                 android:weightSum="1">
 
                 <Button
-                    android:id="@+id/like"
+                    android:id="@+id/happy"
                     android:layout_width="43dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginLeft="0dp"
-                    android:background="@android:drawable/checkbox_on_background"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/happy2"
                     android:elevation="0dp" />
 
                 <Button
-                    android:id="@+id/button21"
+                    android:id="@+id/angry"
                     android:layout_width="45dp"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/ic_delete" />
+                    android:layout_height="41dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/angry2" />
 
                 <Button
-                    android:id="@+id/button20"
+                    android:id="@+id/damage"
                     android:layout_width="48dp"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/presence_away" />
+                    android:layout_height="42dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/damage2" />
 
                 <Button
-                    android:id="@+id/button19"
+                    android:id="@+id/dangerous"
                     android:layout_width="46dp"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/presence_busy" />
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/busy2" />
             </LinearLayout>
 
         </LinearLayout>

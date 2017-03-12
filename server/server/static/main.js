@@ -67,7 +67,7 @@ map.on('load', function () {
   });
 
   map.addLayer({
-    "id": "Evaluation participative",
+    "id": "Évaluation participative",
     "type": "line",
     "source": "active_transportation",
     "paint": {
@@ -77,7 +77,7 @@ map.on('load', function () {
   }, 'place-city-sm'  );
 
 map.addLayer({
-  "id": "Convivialitée",
+  "id": "Convivialité",
   "type": "line",
   "source": "conviviality",
   "paint": {
@@ -149,8 +149,8 @@ map.addLayer({
 var toggleableLayerIds = [
   'Accidents',
   'Pistes cyclables',
-  'Evaluation participative',
-  'Convivialitée',
+  'Évaluation participative',
+  'Convivialité',
   'Dénivelé',
   'Autoroutes',
   'Trottoirs'
@@ -246,7 +246,7 @@ $(document).ready(function(){
     // set bbox as 5px reactangle area around clicked point
     var box_size = 20;
     var bbox = [[e.point.x - box_size , e.point.y - box_size], [e.point.x + box_size, e.point.y + box_size]];
-    var features = map.queryRenderedFeatures(bbox, { layers: ['Evaluation participative'] });
+    var features = map.queryRenderedFeatures(bbox, { layers: ['Évaluation participative'] });
 
     // Run through the selected features and set a filter
     // to match features with unique FIPS codes to activate

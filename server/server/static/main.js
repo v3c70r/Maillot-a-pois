@@ -9,6 +9,12 @@ map.addControl(new mapboxgl.GeolocateControl(), ['top-left']);
 // Load geojson data from url
 map.on('load', function () {
   // Loading datas
+
+  map.addSource("accidents", {
+    "type": "geojson",
+    "data": "/static/data/accident_actif_quebec_city.geojson"
+  });
+
   map.addSource("bike", {
     "type": "geojson",
     "data": "/static/data/QuebecCity_BicycleInfrastructure.geojson"
@@ -42,6 +48,15 @@ map.on('load', function () {
 
   // Adding layers from data
   map.addLayer({
+      "id": "Accidents",
+      "type": "point",
+      "source": "accidents",
+      "paint": {
+        "point-color": "#ff0000"
+      }
+    });
+
+  map.addLayer({
     "id": "Pistes cyclables",
     "type": "line",
     "source": "bike",
@@ -52,7 +67,7 @@ map.on('load', function () {
   });
 
   map.addLayer({
-    "id": "Transport actif",
+    "id": "Evaluation participative",
     "type": "line",
     "source": "active_transportation",
     "paint": {
@@ -132,8 +147,9 @@ map.addLayer({
 });
 
 var toggleableLayerIds = [
+  'Accidents',
   'Pistes cyclables',
-  'Transport actif',
+  'Evaluation participative',
   'Convivialitée',
   'Dénivelé',
   'Autoroutes',
@@ -230,7 +246,7 @@ $(document).ready(function(){
     // set bbox as 5px reactangle area around clicked point
     var box_size = 20;
     var bbox = [[e.point.x - box_size , e.point.y - box_size], [e.point.x + box_size, e.point.y + box_size]];
-    var features = map.queryRenderedFeatures(bbox, { layers: ['Transport actif'] });
+    var features = map.queryRenderedFeatures(bbox, { layers: ['Evaluation participative'] });
 
     // Run through the selected features and set a filter
     // to match features with unique FIPS codes to activate

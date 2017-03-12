@@ -238,7 +238,7 @@ $(document).ready(function(){
     // set bbox as 5px reactangle area around clicked point
     var box_size = 20;
     var bbox = [[e.point.x - box_size , e.point.y - box_size], [e.point.x + box_size, e.point.y + box_size]];
-    var features = map.queryRenderedFeatures(bbox, { layers: ['active_transportation'] });
+    var features = map.queryRenderedFeatures(bbox, { layers: ['Transport actif'] });
 
     // Run through the selected features and set a filter
     // to match features with unique FIPS codes to activate

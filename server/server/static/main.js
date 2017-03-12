@@ -49,10 +49,10 @@ map.on('load', function () {
   // Adding layers from data
   map.addLayer({
       "id": "Accidents",
-      "type": "point",
+      "type": "circle",
       "source": "accidents",
       "paint": {
-        "point-color": "#ff0000"
+        "circle-color": "#ff0000"
       }
     });
 

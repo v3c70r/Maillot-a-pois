@@ -1,15 +1,25 @@
 import web
 import json
 import redis
+import pandas as _pd
 from restful_controller import RESTfulController
 
+_COMPANY_COLS = ["activity_pt", "env_pts", "fidelity_pts", "data_collect_pts"]
 urls = (
     r'/resources(?:/(?P<resource_id>[0-9]+))?', 'ResourceController',
     r'/getLink/(?P<link_id>[0-9]+)', 'GetLinkHandler',
-    r'/updateLink', 'UpdateLinkHandler'
+    r'/updateLink', 'UpdateLinkHandler',
+    r'/companyRank/(?P<company_col>'+"|".join(_COMPANY_COLS)+')', 'CompanyRankHandler'
 )
 
 _LINK_KEYS = ["num_dangerous", "num_likes", "num_damaged"]
+_COMPANY_DATA_PATH = "../../data/synthesis_data_company.csv"
+_COMPANY_DATA = _pd.read_csv(_COMPANY_DATA_PATH, sep=";")
+
+class CompanyRankHandler:
+    """Handle company ranking synthesis data requrest"""
+    def GET(self, company_col):
+        return _COMPANY_DATA[["cie_name", company_col]].sort_values(by=[company_col], ascending=False).to_json()
 
 class UpdateLinkHandler:
     """ This controller takes the json from user to update the 

@@ -18,7 +18,7 @@ map.on('load', function () {
     "data": "/static/data/QuebecCity_PedestrianInfrastructure.geojson"
   });
 
-  map.addSource("ordinal", {
+  map.addSource("conviviality", {
     "type": "geojson",
     "data": "/static/data/osm_conviviality.geojson"
   });
@@ -75,9 +75,9 @@ map.on('load', function () {
   }, 'place-city-sm'  );
 
 map.addLayer({
-  "id": "ordinal",
+  "id": "conviviality",
   "type": "line",
-  "source": "ordinal",
+  "source": "conviviality",
   "paint": {
     "line-width": 3,
     "line-color": {
@@ -152,7 +152,7 @@ map.addLayer({
   map.setCenter([-71.2763062602738, 46.785609176075724]);
 });
 
-var toggleableLayerIds = ['bike', 'pedestrian', 'active_transportation', 'ordinal', 'elevation', 'freeways', 'sidewalk', "Mixed use"];
+var toggleableLayerIds = ['bike', 'pedestrian', 'active_transportation', 'conviviality', 'elevation', 'freeways', 'sidewalk'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
   var id = toggleableLayerIds[i];

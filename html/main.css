@@ -73,7 +73,7 @@ body { margin:0; padding:0; }
       bottom: 0;
       width: 100%;
       overflow: auto;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.7);
     }
 
 
@@ -85,11 +85,13 @@ body { margin:0; padding:0; }
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 17px;
+  font-family: sans-serif;
+  font-weight: bold;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #ff0000; /* Green */
+  background-color: #CC0000; opacity:0.8; /* red */
 }
 .damaged{
   width:100%;
@@ -99,11 +101,13 @@ body { margin:0; padding:0; }
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 17px;
+  font-family: sans-serif;
+  font-weight: bold;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #FFBF00; /* Green */
+  background-color: #FF9900; opacity:0.8; /* Yellow */
 }
 .like{
   width:100%;
@@ -113,11 +117,58 @@ body { margin:0; padding:0; }
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 17px;
+  font-family: sans-serif;
+  font-weight: bold;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #4CAF50; /* Green */
+  background-color: #66CC00; opacity:0.8; /* Green */
 }
 
+td{
+  color:#000000;
+}
 
+.my_header{
+  color:#000000;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#like{
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#damaged{
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#dangerous{
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#selected_link_likes{
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #66CC00;
+}
+
+#selected_link_damaged{
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #993300;
+}
+
+#selected_link_dangerous{
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #990000;
+}

@@ -18,6 +18,11 @@ map.on('load', function () {
     "data": "/static/data/QuebecCity_PedestrianInfrastructure.geojson"
   });
 
+  map.addSource("ordinal", {
+    "type": "geojson",
+    "data": "/static/data/osm_conviviality.geojson"
+  });
+
   map.addSource("active_transportation", {
     "type": "geojson",
     "data": "/static/data/osm_active_transportation.geojson"
@@ -69,16 +74,24 @@ map.on('load', function () {
     }
   }, 'place-city-sm'  );
 
-  map.addLayer({
-    "id": "link_selected",
-    "type": "line",
-    "source": "active_transportation",
-    "paint": {
-      "line-color": "#ff0000",
-      "line-width": 4
-    },
-    "filter": ["in", "FIPS", ""]
-  }, 'place-city-sm');
+map.addLayer({
+  "id": "ordinal",
+  "type": "line",
+  "source": "ordinal",
+  "paint": {
+    "line-width": 3,
+    "line-color": {
+      "property": "ordinal",
+      "type": "exponential",
+      "stops": [
+        [0, "#FF0000 "],
+        [1, "#E8A60C "],
+        [2, "#3DFF01 "]
+      ]
+    }
+  }
+});
+
   map.addLayer({
     "id": "elevation",
     "type": "line",
@@ -123,15 +136,15 @@ map.on('load', function () {
     }
   });
 
-  map.addLayer({
-    "id": "Mixed use",
-    "type": "line",
-    "source": "mixed_use",
-    "paint": {
-      "line-color": "#ff69b4",
-      "line-width": 2
-    }
-  });
+  //map.addLayer({
+  //  "id": "Mixed use",
+  //  "type": "line",
+  //  "source": "mixed_use",
+  //  "paint": {
+  //    "line-color": "#ff69b4",
+  //    "line-width": 2
+  //  }
+  //});
   //map.on('mousemove', function (e) {
   //    var features = map.queryRenderedFeatures(e.point);
   //    document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
@@ -139,7 +152,7 @@ map.on('load', function () {
   map.setCenter([-71.2763062602738, 46.785609176075724]);
 });
 
-var toggleableLayerIds = ['bike', 'pedestrian', 'active_transportation', 'elevation', 'freeways', 'sidewalk', "Mixed use"];
+var toggleableLayerIds = ['bike', 'pedestrian', 'active_transportation', 'ordinal', 'elevation', 'freeways', 'sidewalk', "Mixed use"];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
   var id = toggleableLayerIds[i];

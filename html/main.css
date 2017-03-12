@@ -91,7 +91,7 @@ body { margin:0; padding:0; }
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #CC0000; opacity:0.8; /* red */
+  background-color: #252526; opacity:0.8; /* red */
 }
 .damaged{
   width:100%;
@@ -107,7 +107,7 @@ body { margin:0; padding:0; }
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #FF9900; opacity:0.8; /* Yellow */
+  background-color: #9aa7bc; opacity:0.8; /* Yellow */
 }
 .like{
   width:100%;
@@ -123,7 +123,7 @@ body { margin:0; padding:0; }
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #66CC00; opacity:0.8; /* Green */
+  background-color: #4286f4; opacity:0.8; /* Green */
 }
 
 td{

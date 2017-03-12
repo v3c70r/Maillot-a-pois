@@ -2,10 +2,13 @@ package com.example.guilhem.firstmapbox;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.AsyncTask;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.graphics.Color;
@@ -18,6 +21,9 @@ import android.widget.Toast;
 
 
 import com.mapbox.mapboxsdk.MapboxAccountManager;
+import com.mapbox.mapboxsdk.annotations.Icon;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.location.LocationListener;
@@ -84,7 +90,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final Button buttonDangerous = (Button) findViewById(R.id.dangerous);
+        buttonDangerous.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                addMarkerBusy();
 
+            }
+        });
+
+        final Button buttonDamage = (Button) findViewById(R.id.damage);
+        buttonDamage.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                addMarkerDamage();
+
+            }
+        });
+
+
+        final Button buttonHappy = (Button) findViewById(R.id.happy);
+        buttonHappy.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                addMarkerHappy();
+
+            }
+        });
+
+        final Button buttonAngry = (Button) findViewById(R.id.angry);
+        buttonAngry.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                addMarkerAngry();
+
+            }
+        });
 
 
         // Add a MapboxMap
@@ -107,6 +148,124 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    private void addMarkerBusy(){
+
+        new CountDownTimer(0, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // do something after 1s
+            }
+
+            @Override
+            public void onFinish() {
+                // Create an Icon object for the marker to use
+                IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+                Drawable iconDrawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.busy);
+                Icon icon = iconFactory.fromDrawable(iconDrawable);
+
+                // Add the custom icon marker to the map
+                map.addMarker(new MarkerOptions()
+                        .position(new LatLng(locationServices.getLastLocation()))
+                        .icon(icon));
+
+
+            }
+
+        }.start();
+
+
+    }
+
+    private void addMarkerDamage(){
+
+        new CountDownTimer(0, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // do something after 1s
+            }
+
+            @Override
+            public void onFinish() {
+                // Create an Icon object for the marker to use
+                IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+                Drawable iconDrawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.damage);
+                Icon icon = iconFactory.fromDrawable(iconDrawable);
+
+                // Add the custom icon marker to the map
+                map.addMarker(new MarkerOptions()
+                        .position(new LatLng(locationServices.getLastLocation()))
+                        .icon(icon));
+
+
+            }
+
+        }.start();
+
+
+    }
+
+    private void addMarkerHappy(){
+
+        new CountDownTimer(0, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // do something after 1s
+            }
+
+            @Override
+            public void onFinish() {
+                // Create an Icon object for the marker to use
+                IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+                Drawable iconDrawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.happy);
+                Icon icon = iconFactory.fromDrawable(iconDrawable);
+
+                // Add the custom icon marker to the map
+                map.addMarker(new MarkerOptions()
+                        .position(new LatLng(locationServices.getLastLocation()))
+                        .icon(icon));
+
+
+            }
+
+        }.start();
+
+
+    }
+
+    private void addMarkerAngry(){
+
+        new CountDownTimer(0, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // do something after 1s
+            }
+
+            @Override
+            public void onFinish() {
+                // Create an Icon object for the marker to use
+                IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+                Drawable iconDrawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.angry);
+                Icon icon = iconFactory.fromDrawable(iconDrawable);
+
+                // Add the custom icon marker to the map
+                map.addMarker(new MarkerOptions()
+                        .position(new LatLng(locationServices.getLastLocation()))
+                        .icon(icon));
+
+
+            }
+
+        }.start();
+
+
+    }
+
 
     @Override
     public void onResume() {

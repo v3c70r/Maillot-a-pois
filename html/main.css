@@ -52,6 +52,15 @@ body { margin:0; padding:0; }
       background: rgba(255, 255, 255, 0.8);
     }
 
+    #legend {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100px;
+      overflow: auto;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
     #stats_panel {
       position: absolute;
       top: 0;

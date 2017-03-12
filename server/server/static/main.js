@@ -13,10 +13,6 @@ map.on('load', function () {
     "type": "geojson",
     "data": "/static/data/QuebecCity_BicycleInfrastructure.geojson"
   });
-  map.addSource("pedestrian", {
-    "type": "geojson",
-    "data": "/static/data/QuebecCity_PedestrianInfrastructure.geojson"
-  });
 
   map.addSource("conviviality", {
     "type": "geojson",
@@ -46,7 +42,7 @@ map.on('load', function () {
 
   // Adding layers from data
   map.addLayer({
-    "id": "bike",
+    "id": "Pistes cyclables",
     "type": "line",
     "source": "bike",
     "paint": {
@@ -54,18 +50,9 @@ map.on('load', function () {
       "line-width": 2
     }
   });
-  map.addLayer({
-    "id": "pedestrian",
-    "type": "line",
-    "source": "pedestrian",
-    "paint": {
-      "line-color": "#3DFF01",
-      "line-width": 2
-    }
-  });
 
   map.addLayer({
-    "id": "active_transportation",
+    "id": "Transport actif",
     "type": "line",
     "source": "active_transportation",
     "paint": {
@@ -75,7 +62,7 @@ map.on('load', function () {
   }, 'place-city-sm'  );
 
 map.addLayer({
-  "id": "conviviality",
+  "id": "Convivialitée",
   "type": "line",
   "source": "conviviality",
   "paint": {
@@ -93,7 +80,7 @@ map.addLayer({
 });
 
   map.addLayer({
-    "id": "elevation",
+    "id": "Dénivelé",
     "type": "line",
     "source": "elevation",
     "paint": {
@@ -110,7 +97,7 @@ map.addLayer({
     }
   });
   map.addLayer({
-    "id": "freeways",
+    "id": "Autoroutes",
     "type": "line",
     "source": "freeways",
     "paint": {
@@ -119,7 +106,7 @@ map.addLayer({
     }
   });
   map.addLayer({
-    "id": "sidewalk",
+    "id": "Trottoirs",
     "type": "line",
     "source": "sidewalk",
     "paint": {
@@ -152,7 +139,14 @@ map.addLayer({
   map.setCenter([-71.2763062602738, 46.785609176075724]);
 });
 
-var toggleableLayerIds = ['bike', 'pedestrian', 'active_transportation', 'conviviality', 'elevation', 'freeways', 'sidewalk'];
+var toggleableLayerIds = [
+  'Pistes cyclables',  
+  'Transport actif', 
+  'Convivialitée', 
+  'Dénivelé', 
+  'Autoroutes', 
+  'Trottoirs'
+];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
   var id = toggleableLayerIds[i];

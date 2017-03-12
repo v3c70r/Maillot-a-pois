@@ -56,7 +56,7 @@ map.on('load', function () {
     "type": "line",
     "source": "active_transportation",
     "paint": {
-      "line-color": "#0000ff",
+      "line-color": "#000000",
       "line-width": 2
     }
   }, 'place-city-sm'  );
@@ -110,15 +110,7 @@ map.addLayer({
     "type": "line",
     "source": "sidewalk",
     "paint": {
-      "line-color": {
-        "property": "nb_trottoirs",
-        "type": "categorical",
-        "stops": [
-          [0, "#FF0000"],
-          [1, "#E8A60C"],
-          [2, "#3DFF01"]
-        ]
-      },
+      "line-color": "#000000",
       "line-width": 2
     }
   });
@@ -140,11 +132,11 @@ map.addLayer({
 });
 
 var toggleableLayerIds = [
-  'Pistes cyclables',  
-  'Transport actif', 
-  'Convivialitée', 
-  'Dénivelé', 
-  'Autoroutes', 
+  'Pistes cyclables',
+  'Transport actif',
+  'Convivialitée',
+  'Dénivelé',
+  'Autoroutes',
   'Trottoirs'
 ];
 

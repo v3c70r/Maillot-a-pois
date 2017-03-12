@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+  <title>Mapbox</title>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
+  <link href='main.css' rel='stylesheet' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+</head>
+<body>
+
+
+  <div id='map'></div>
+  <nav id="menu"></nav>
+  <div id='features'>
+    <div id="selected_link_scores">
+      <table width = 100%>
+        <tr><td class="my_header">Lien selectionné: </td><td id="selected_link">1034</td></tr>
+        <tr>
+          <td id="like">Avis positif</td><td class="my_value" id="selected_link_likes">1</td>
+        </tr>
+        <tr>
+          <td id="damaged">Endommagé</td><td id="selected_link_damaged">1</td>
+        </tr>
+        <tr>
+          <td id="dangerous">Dangereux</td><td id="selected_link_dangerous">
+      </table>
+    </div>
+    <div id="link_scores">
+      <table style="width:100%">
+        <tr><button class="dangerous">Dangereux</button></tr>
+        <tr><button class="damaged">Endommagé</button></tr>
+        <tr><button class="like">Avis positif</button></tr>
+      </table>
+    </div>
+  </div>
+  <pre id="stats_panel">
+    <div id="company_ranking"></div>
+  </pre>
+  <script src='main.js'></script>
+
+</body>
+</html>
